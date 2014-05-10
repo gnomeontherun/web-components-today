@@ -1,0 +1,53 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymer-ajax/polymer-ajax.html">
+
+<polymer-element name="github-buttons" attributes="user repo count size">
+
+<template id="github-buttons">
+
+  <link rel="stylesheet" href="github-buttons.css" />
+
+  <polymer-ajax url="{{apiUrl}}" auto handleAs="json" response="{{response}}"></polymer-ajax>
+  <span class="github-btn github-watchers github-btn-{{size}}">
+    <a class="gh-btn" href="https://github.com/{{user}}/{{repo}}/" target="_blank">
+      <span class="gh-ico"></span>
+      <span class="gh-text">Star</span>
+    </a>
+    <a class="gh-count{{countClass}}" href="https://github.com/{{user}}/{{repo}}/stargazers" target="_blank">{{response.stargazers_count}}</a>
+  </span>
+  <span class="github-btn github-forks github-btn-{{size}}">
+    <a class="gh-btn" href="https://github.com/{{user}}/{{repo}}" target="_blank">
+      <span class="gh-ico"></span>
+      <span class="gh-text">Fork</span>
+    </a>
+    <a class="gh-count{{countClass}}" href="https://github.com/{{user}}/{{repo}}/network" target="_blank">{{response.forks_count}}</a>
+  </span>
+  <span class="github-btn github-me github-btn-{{size}}">
+    <a class="gh-btn" href="https://github.com/{{user}}" target="_blank">
+      <span class="gh-ico"></span>
+      <span class="gh-text">Follow</span>
+    </a>
+    <a class="gh-count{{countClass}}" href="https://github.com/{{user}}/followers" target="_blank">@{{user}}</a>
+  </span>
+
+</template>
+
+<script type="text/javascript">
+
+  Polymer('github-buttons', {
+    count: true,
+    repo: "webcomponents",
+    size: "small",
+    user: "w3c",
+    ready: function () {
+      this.countClass = '';
+      if (this.count) {
+        this.countClass = ' active';
+      }
+      this.apiUrl = "https://api.github.com/repos/" + this.user + "/" + this.repo;
+    }
+  });
+
+</script>
+
+</polymer-element>

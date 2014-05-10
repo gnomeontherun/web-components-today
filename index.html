@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Web Components, Today</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="Jeremy Wilken">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <style>
+    .navigate-up, .navigate-down { display: none; }
+    .reveal h1 { font-size: 2.5em; }
+    .reveal blockquote { font-size: 1.5em; line-height: 1.2em;}
+    .reveal table { width: 100%; }
+    .reveal th { width: 50%; }
+    span.fa { font-family: FontAwesome; }
+    span.fa-check { color: #469808; }
+    span.fa-question { color: #cb9a0b; }
+    span.fa-minus { color: #9d0816; }
+    .reveal ul.list-unstyled { margin-left: 0; }
+    .reveal ul.list-unstyled li { list-style: none; }
+    .reveal pre { font-size: 0.7em; }
+    </style>
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+
+      <section>
+        <section>
+          <h1>Web Components<br />Today</h1>
+          <h3>Web Development's Declarative Future</h3>
+          <p>
+            <small>By <a href="http://github.com/gnomeontherun">Jeremy Wilken</a> - Software Engineer, eBay</small>
+          </p>
+        </section>
+      </section>
+
+
+      <section>
+        <h1>Client: "I want you to add the best slideshow ever."</h1>
+        <ol>
+          <li class="fragment"><h3>Search Google for "jQuery slideshow".</h3></li>
+          <li class="fragment"><h3>Read several "top 40 jQuery slideshow plugin" link bait posts.</h3></li>
+          <li class="fragment"><h3>Try 5 plugins before finding one that actually works.</h3></li>
+          <li class="fragment"><h3>Copy and paste source code (ignore the docs, if the exist).</h3></li>
+          <li class="fragment"><h3>Add CSS to make default color match.</h3></li>
+          <li class="fragment"><h3>Profit.</h3></li>
+        </ol>
+      </section>
+
+
+      <section>
+        <h1>Ultimately we drown in</h1>
+        <ul>
+          <li class="fragment">Repetitive code across multiple projects</li>
+          <li class="fragment">Overwhelming number of approaches to the same problem</li>
+          <li class="fragment">Dependency complications</li>
+          <li class="fragment">Non-declarative markup</li>
+          <li class="fragment">Non-native lifecycle events</li>
+          <li class="fragment">Collision between different scripts or plugins or styling</li>
+          <li class="fragment">Mixing of business logic with code to initialize scripts/plugins</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <img src="img/dwight-defence.gif" />
+      </section>
+
+
+      <section>
+        <h1>Web Components</h1>
+        <h3>are the <strike>future</strike> present.</h3>
+      </section>
+
+
+      <section>
+        <h1>My definition</h1>
+        <blockquote>Web Componets are custom elements that behave like standard HTML elements and are easy to reuse without interfering with other elements.</blockquote>
+      </section>
+
+
+      <section>
+        <h1>Key Goals of Web Components</h1>
+        <ul>
+          <li class="fragment"><b>Encapsulation</b> - keep component logic isolated</li>
+          <li class="fragment"><b>Isolation</b> - keep component internals hidden from DOM</li>
+          <li class="fragment"><b>Reusability</b> - make features extremely easy to reuse</li>
+          <li class="fragment"><b>Native</b> - function like standard html elements with event APIs</li>
+          <li class="fragment"><b>Customizable</b> - style and extend like standard html elements</li>
+          <li class="fragment"><b>Declarative</b> - favor declaring features first with html</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h1>Web Components are 4 technologies</h1>
+        <ul>
+          <li class="fragment"><b>Custom Elements</b> (encapsulation, isolation, native, declarative)</li>
+          <li class="fragment"><b>HTML Imports</b> (reusability)</li>
+          <li class="fragment"><b>Templates</b> (encapsulation)</li>
+          <li class="fragment"><b>Shadow DOM</b> (isolation)</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h1>There's a catch</h1>
+        <p>The Spec is not finalized, and no browser currently supports all 4 technologies natively.</p>
+      </section>
+
+
+      <section>
+        <h1>Let's dig into code</h1>
+      </section>
+
+
+      <section>
+        <h1>Using the element</h1>
+        <pre><code><github-buttons user="w3c" repo="webcomponents" size="large"></github-buttons></code></pre>
+      </section>
+
+
+      <section>
+        <h1>AngularJS</h1>
+        <p>is a Javascript toolkit for building applications in the browser.</p>
+      </section>
+
+
+      <section>
+        <h1>AngularJS Code</h1>
+        <h4><a href="components/angular" target="_blank">https://gnomeontherun.github.io/<br />web-components-today/components/angular</a></h4>
+      </section>
+
+
+      <section>
+        <h1>Web Components using AngularJS</h1>
+        <table>
+          <tr>
+            <td>
+              <ul class="list-unstyled fragment">
+                <li><span class="fa fa-fw fa-check"></span> Extensive APIs</li>
+                <li><span class="fa fa-fw fa-check"></span> Very declarative markup</li>
+                <li><span class="fa fa-fw fa-check"></span> Lots of flexibility</li>
+                <li><span class="fa fa-fw fa-check"></span> Strong templating</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="list-unstyled fragment">
+                <li><span class="fa fa-fw fa-minus"></span> No styling isolation</li>
+                <li><span class="fa fa-fw fa-minus"></span> Difficult to reuse</li>
+                <li><span class="fa fa-fw fa-minus"></span> Requires Angular application</li>
+                <li><span class="fa fa-fw fa-minus"></span> Doesn't use native APIs</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </section>
+
+
+      <section>
+        <h1>Vanilla Javascript</h1>
+        <p>is using just ES5 Javascript to create web components.</p>
+      </section>
+
+
+      <section>
+        <h1>Vanilla Javascript Code</h1>
+        <h4><a href="components/vanilla" target="_blank">https://gnomeontherun.github.io/<br />web-components-today/components/vanilla</a></h4>
+      </section>
+
+
+      <section>
+        <h1>Vanilla Javascript</h1>
+        <table>
+          <tr>
+            <td>
+              <ul class="list-unstyled fragment">
+                <li><span class="fa fa-fw fa-check"></span> Just the native APIs</li>
+                <li><span class="fa fa-fw fa-check"></span> Most flexibility</li>
+                <li><span class="fa fa-fw fa-check"></span> Can be very efficient</li>
+                <li><span class="fa fa-fw fa-check"></span> Great for simple components</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="list-unstyled fragment">
+                <li><span class="fa fa-fw fa-minus"></span> Most work to implement</li>
+                <li><span class="fa fa-fw fa-minus"></span> Most opportunity for bad design</li>
+                <li><span class="fa fa-fw fa-minus"></span> Lacks many supporting tools</li>
+                <li><span class="fa fa-fw fa-minus"></span> Best practices still in progress</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </section>
+
+
+      <section>
+        <h1>X-Tag</h1>
+        <p>is a custom elements toolkit.</p>
+      </section>
+
+
+      <section>
+        <h1>X-Tag Code</h1>
+        <h4><a href="components/x-tag" target="_blank">https://gnomeontherun.github.io/<br />web-components-today/components/x-tag</a></h4>
+      </section>
+
+
+      <section>
+        <h1>X-Tag</h1>
+        <table>
+          <tr>
+            <td>
+              <ul class="list-unstyled fragment">
+                <li><span class="fa fa-fw fa-check"></span> Cleaner API</li>
+                <li><span class="fa fa-fw fa-check"></span> Life cycle and event bindings</li>
+                <li><span class="fa fa-fw fa-check"></span> Mixins and other utilities</li>
+                <li><span class="fa fa-fw fa-check"></span> Provides support for IE9+</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="list-unstyled fragment">
+                <li><span class="fa fa-fw fa-minus"></span> Doesn't use Shadow DOM (manual)</li>
+                <li><span class="fa fa-fw fa-minus"></span> Documentation could be better</li>
+                <li><span class="fa fa-fw fa-minus"></span> No two way data binding</li>
+                <li><span class="fa fa-fw fa-minus"></span> Templating not any different</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </section>
+
+
+      <section>
+        <h1>Polymer</h1>
+        <p>is a two part toolkit. It contains a set of polyfills, and a framework to develop custom elements.</p>
+      </section>
+
+
+      <section>
+        <h1>Polymer Code</h1>
+        <h4><a href="components/polymer" target="_blank">https://gnomeontherun.github.io/<br />web-components-today/components/polymer</a></h4>
+      </section>
+
+
+      <section>
+        <h1>Polymer</h1>
+        <table>
+          <tr>
+            <td>
+              <ul class="list-unstyled fragment">
+                <li><span class="fa fa-fw fa-check"></span> Custom elements as APIs</li>
+                <li><span class="fa fa-fw fa-check"></span> Two way data binding</li>
+                <li><span class="fa fa-fw fa-check"></span> Rich framework</li>
+                <li><span class="fa fa-fw fa-check"></span> Well supported, documentation is improving</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="list-unstyled fragment">
+                <li><span class="fa fa-fw fa-minus"></span> Things are still changing</li>
+                <li><span class="fa fa-fw fa-minus"></span> Loads a lot of assets</li>
+                <li><span class="fa fa-fw fa-minus"></span> Alpha, may not want to use in production</li>
+                <li><span class="fa fa-fw fa-minus"></span> IE10+</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </section>
+
+
+      <section>
+        <h1>Problems Web Components do not solve</h1>
+        <h3>So keep these in mind as you build.</h3>
+        <ul>
+          <li class="fragment">Client dependency management or duplication</li>
+          <li class="fragment">Accessibility requirements</li>
+          <li class="fragment">Duplication of features, the same as jQuery plugin duplication</li>
+          <li class="fragment">Doesn't enforce quality of componentization</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h1>Other considerations</h1>
+        <ul>
+          <li class="fragment">Packaging options: Polymer has Volcanize, Grunt/Gulp/etc tasks</li>
+          <li class="fragment">Favor simplicity over complexity</li>
+          <li class="fragment">Limit dependencies</li>
+          <li class="fragment">Make web components like native elements</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h1>Thanks!</h1>
+        <h3><a href="https://gnomeontherun.github.io/web-components-today">https://gnomeontherun.github.io/<br />web-components-today</a></h3>
+        <p>&nbsp;</p>
+        <h3>Jeremy Wilken</h3>
+        <h3><a href="http://twitter.com/gnomeontherun">@gnomeontherun</a></h3>
+      </section>
+
+
+      <section>
+        <h1>Resources</h1>
+        <ul>
+          <li><a href="http://www.w3.org/TR/components-intro/">Web Components W3C Spec</a></li>
+          <li><a href="http://webcomponents.github.io/">WebComponents.org</a></li>
+          <li><a href="http://customelements.io/">CustomElements.io</a></li>
+          <li><a href="http://tech.pro/blog/1940/getting-started-with-web-components">Getting Started with Web Components</a></li>
+          <li><a href="http://victorsavkin.com/post/78575197096/why-you-should-care-about-web-components">Why you should care about Web Components</a></li>
+          <li><a href="http://addyosmani.com/blog/the-webs-declarative-composable-future/">The Web's Declarative, Composable Future</a></li>
+          <li><a href="https://hacks.mozilla.org/2014/03/custom-elements-for-custom-applications-web-components-with-mozillas-brick-and-x-tag/">Custom Elements for Custom Applications - Web Components with Mozilla's Brick and X-Tag</a></li>
+          <li><a href="http://code.tutsplus.com/tutorials/using-polymer-to-create-web-components--cms-20475">Using Polymer to Create Web Components</a></li>
+          <li><a href="http://gaslight.co/blog/roll-your-own-html5-web-components-with-vanilla-js">Roll Your Own HTML5 Web Components With Vanilla JS</a></li>
+          <li><a href="http://html5hub.com/extending-the-web-with-components">Extending the Web with Components</a></li>
+        </ul>
+      </section>
+
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: 'night', // available themes are in /css/theme
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

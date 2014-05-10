@@ -1,0 +1,23 @@
+<div id="github-buttons">
+  <span class="github-btn github-watchers github-btn-{{options.size}}">
+    <a class="gh-btn" href="https://github.com/{{options.user}}/{{options.repo}}/" target="_blank">
+      <span class="gh-ico"></span>
+      <span class="gh-text">Star</span>
+    </a>
+    <a class="gh-count" ng-show="options.count" ng-href="https://github.com/{{options.user}}/{{options.repo}}/stargazers" target="_blank">{{response.stargazers_count || 0}}</a>
+  </span>
+  <span class="github-btn github-forks github-btn-{{options.size}}">
+    <a class="gh-btn" ng-href="https://github.com/{{options.user}}/{{options.repo}}" target="_blank">
+      <span class="gh-ico"></span>
+      <span class="gh-text">Fork</span>
+    </a>
+    <a class="gh-count" ng-show="options.count" ng-href="https://github.com/{{options.user}}/{{options.repo}}/network" target="_blank">{{response.forks_count || 0}}</a>
+  </span>
+  <span class="github-btn github-me github-btn-{{options.size}}">
+    <a class="gh-btn" ng-href="https://github.com/{{options.user}}" target="_blank">
+      <span class="gh-ico"></span>
+      <span class="gh-text">Follow</span>
+    </a>
+    <a class="gh-count" ng-show="options.count" ng-href="https://github.com/{{options.user}}/followers" target="_blank">@{{options.user}}</a>
+  </span>
+</div>
