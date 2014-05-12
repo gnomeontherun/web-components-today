@@ -11,7 +11,7 @@ angular.module('githubButtons', [])
         count: true,
         repo: 'webcomponents',
         size: 'small',
-        user: true
+        user: 'w3c'
       };
 
       // Update values based on attributes

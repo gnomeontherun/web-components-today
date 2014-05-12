@@ -66,7 +66,7 @@
       <section>
         <section>
           <h1>Web Components<br />Today</h1>
-          <h3>Web Development's Declarative Future</h3>
+          <h3>The Web's Declarative <strike>Future</strike> Present</h3>
           <p>
             <small>By <a href="http://github.com/gnomeontherun">Jeremy Wilken</a> - Software Engineer, eBay</small>
           </p>
@@ -74,7 +74,7 @@
       </section>
 
 
-      <section>
+      <!-- <section>
         <h1>Client: "I want you to add the best slideshow ever."</h1>
         <ol>
           <li class="fragment">Search Google for "jQuery slideshow".</li>
@@ -84,10 +84,10 @@
           <li class="fragment">Add CSS to make default color match.</li>
           <li class="fragment">Profit.</li>
         </ol>
-      </section>
+      </section> -->
 
 
-      <section>
+      <!-- <section>
         <h1>Ultimately we drown in</h1>
         <ul>
           <li class="fragment">Repetitive code across multiple projects</li>
@@ -98,12 +98,12 @@
           <li class="fragment">Collision between different scripts or plugins or styling</li>
           <li class="fragment">Mixing of business logic with code to initialize scripts/plugins</li>
         </ul>
-      </section>
+      </section> -->
 
 
-      <section>
+      <!-- <section>
         <img src="img/dwight-defence.gif" />
-      </section>
+      </section> -->
 
 
       <section>
@@ -143,8 +143,8 @@
 
 
       <section>
-        <h1>There's a catch</h1>
-        <p>The Spec is not finalized, and no browser currently supports all 4 technologies natively.</p>
+        <h1>Fair warning</h1>
+        <p>The Spec is not finalized, a polyfill is needed, <br/>and API changes are possible.</p>
       </section>
 
 
@@ -154,8 +154,11 @@
 
 
       <section>
-        <h1>Using the element</h1>
-        <pre><code><github-buttons user="w3c" repo="webcomponents" size="large">
+        <h1>Using an element</h1>
+        <pre><code><script src="bower_components/platform/platform.js"></script>
+<link rel="import" href="github-buttons.html">
+
+<github-buttons user="w3c" repo="webcomponents" size="large">
 </github-buttons></code></pre>
       </section>
 
@@ -167,7 +170,7 @@
 
 
       <section>
-        <h1>AngularJS Code</h1>
+        <h1>AngularJS Example</h1>
         <h4><a href="components/angular" target="_blank">https://gnomeontherun.github.io/<br />web-components-today/components/angular</a></h4>
       </section>
 
@@ -204,7 +207,7 @@
 
 
       <section>
-        <h1>Vanilla Javascript Code</h1>
+        <h1>Vanilla Javascript Example</h1>
         <h4><a href="components/vanilla" target="_blank">https://gnomeontherun.github.io/<br />web-components-today/components/vanilla</a></h4>
       </section>
 
@@ -241,7 +244,7 @@
 
 
       <section>
-        <h1>X-Tag Code</h1>
+        <h1>X-Tag Example</h1>
         <h4><a href="components/x-tag" target="_blank">https://gnomeontherun.github.io/<br />web-components-today/components/x-tag</a></h4>
       </section>
 
@@ -278,7 +281,7 @@
 
 
       <section>
-        <h1>Polymer Code</h1>
+        <h1>Polymer Example</h1>
         <h4><a href="components/polymer" target="_blank">https://gnomeontherun.github.io/<br />web-components-today/components/polymer</a></h4>
       </section>
 
@@ -312,7 +315,7 @@
         <h1>Problems Web Components do not solve</h1>
         <h3>So keep these in mind as you build.</h3>
         <ul>
-          <li class="fragment">Client dependency management or duplication</li>
+          <li class="fragment">External dependency management (like jQuery)</li>
           <li class="fragment">Accessibility requirements</li>
           <li class="fragment">Duplication of features, the same as jQuery plugin duplication</li>
           <li class="fragment">Doesn't enforce quality of componentization</li>
@@ -323,7 +326,7 @@
       <section>
         <h1>Other considerations</h1>
         <ul>
-          <li class="fragment">Packaging options: Polymer has Volcanize, Grunt/Gulp/etc tasks</li>
+          <li class="fragment">Packaging options: Polymer has Vulcanize, Grunt/Gulp/etc tasks</li>
           <li class="fragment">Favor simplicity over complexity</li>
           <li class="fragment">Limit dependencies</li>
           <li class="fragment">Make web components like native elements</li>
