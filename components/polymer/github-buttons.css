@@ -1,9 +1,6 @@
-github-buttons {
-  padding: 0;
-  margin: 0;
+span {
   font: bold 11px/14px "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-rendering: optimizeLegibility;
-  overflow: hidden;
 }
 .github-btn {
   height: 20px;
@@ -85,6 +82,9 @@ github-buttons {
   background-color: #fafafa;
   border: 1px solid #d4d4d4;
 }
+.gh-count.active {
+  display: block;
+}
 .gh-count:hover,
 .gh-count:focus {
   color: #4183C4;
@@ -129,6 +129,9 @@ github-buttons {
   height: 23px;
   background-position: 0 -20px;
 }
+.github-btn-large span {
+  font-size: 16px;
+}
 .github-btn-large .gh-btn:hover .gh-ico,
 .github-btn-large .gh-btn:focus .gh-ico,
 .github-btn-large .gh-btn:active .gh-ico {
@@ -153,7 +156,4 @@ github-buttons {
     background-size: 50px 45px;
   }
 
-}
-.active {
-  display: block;
 }

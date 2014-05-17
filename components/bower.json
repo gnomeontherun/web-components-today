@@ -1,0 +1,16 @@
+{
+  "name": "components",
+  "version": "0.0.0",
+  "homepage": "https://github.com/gnomeontherun/web-components-today",
+  "authors": [
+    "Jeremy Wilken <gnomation@gnomeontherun.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.2.16",
+    "polymer": "~0.2.3",
+    "polymer-ajax": "Polymer/polymer-ajax#~0.2.3",
+    "x-tag-core": "~0.9.7"
+  }
+}
