@@ -1,7 +1,107 @@
 <script src="../bower_components/x-tag-core/src/core.js"></script>
 <script src="../bower_components/x-tag-mixin-request/src/request.js"></script>
 
+<script type="text/javascript">
+(function (window, document) {
+
+  var doc = document._currentScript.ownerDocument;
+  var template = doc.querySelector('template').content;
+
+  xtag.register('github-buttons', {
+    mixins: ['request'],
+    lifecycle: {
+      created: function () {
+        var shadow = this.createShadowRoot();
+        var clone = doc.importNode(template, true);
+        shadow.appendChild(clone);
+
+        var btns = shadow.querySelectorAll('.github-btn');
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].className = btns[i].className += ' github-btn-' + this.size;
+        }
+        var counts = shadow.querySelectorAll('.gh-count');
+        for (var i = 0; i < counts.length; i++) {
+          counts[i].style.display = 'block';
+        }
+
+        shadow.querySelector('.github-watchers .gh-btn').href = 'https://github.com/' + this.user + '/' + this.repo;
+        shadow.querySelector('.github-watchers .gh-count').href = 'https://github.com/' + this.user + '/' + this.repo + '/stargazers';
+        shadow.querySelector('.github-forks .gh-btn').href = 'https://github.com/' + this.user + '/' + this.repo;
+        shadow.querySelector('.github-forks .gh-count').href = 'https://github.com/' + this.user + '/' + this.repo + '/network';
+        shadow.querySelector('.github-me .gh-btn').href = 'https://github.com/' + this.user;
+        shadow.querySelector('.github-me .gh-count').href = 'https://github.com/' + this.user + '/followers';
+
+        var request = new XMLHttpRequest();
+        request.onload = function() {
+          var repo = JSON.parse(this.response);
+          shadow.querySelector('.github-watchers .gh-count').innerHTML = repo.stargazers_count;
+          shadow.querySelector('.github-forks .gh-count').innerHTML = repo.forks_count;
+          shadow.querySelector('.github-me .gh-count').innerHTML = '@' + repo.owner.login;
+        };
+        var url = 'https://api.github.com/repos/' + this.user + '/' + this.repo;
+        request.open('GET', url, true);
+        request.send();
+      }
+    },
+    accessors: {
+      count: {
+        attribute: { boolean: true },
+        get: function () {
+          if (this.getAttribute('count') == 'false') {
+            return false;
+          }
+          return true;
+        }
+      },
+      repo: {
+        attribute: { },
+        get: function () {
+          return this.getAttribute('repo') || 'webcomponents';
+        }
+      },
+      size: {
+        attribute: { },
+        get: function () {
+          if (this.getAttribute('size') == 'large') {
+            return 'large';
+          }
+          return 'small';
+        }
+      },
+      user: {
+        attribute: { },
+        get: function () {
+          return this.getAttribute('user') || 'w3c';
+        }
+      }
+    }
+  });
+})(window, document);
+</script>
+
 <template id="github-buttons">
+
+  <span class="github-btn github-watchers">
+    <a class="gh-btn" href="#" target="_blank">
+      <span class="gh-ico"></span>
+      <span class="gh-text">Star</span>
+    </a>
+    <a class="gh-count" href="#" target="_blank">0</a>
+  </span>
+  <span class="github-btn github-forks">
+    <a class="gh-btn" href="#" target="_blank">
+      <span class="gh-ico"></span>
+      <span class="gh-text">Fork</span>
+    </a>
+    <a class="gh-count" href="#" target="_blank">0</a>
+  </span>
+  <span class="github-btn github-me">
+    <a class="gh-btn" href="#" target="_blank">
+      <span class="gh-ico"></span>
+      <span class="gh-text">Follow</span>
+    </a>
+    <a class="gh-count" href="#" target="_blank">@</a>
+  </span>
 
   <style>
 
@@ -167,104 +267,4 @@
 
   </style>
 
-  <span class="github-btn github-watchers">
-    <a class="gh-btn" href="#" target="_blank">
-      <span class="gh-ico"></span>
-      <span class="gh-text">Star</span>
-    </a>
-    <a class="gh-count" href="#" target="_blank">0</a>
-  </span>
-  <span class="github-btn github-forks">
-    <a class="gh-btn" href="#" target="_blank">
-      <span class="gh-ico"></span>
-      <span class="gh-text">Fork</span>
-    </a>
-    <a class="gh-count" href="#" target="_blank">0</a>
-  </span>
-  <span class="github-btn github-me">
-    <a class="gh-btn" href="#" target="_blank">
-      <span class="gh-ico"></span>
-      <span class="gh-text">Follow</span>
-    </a>
-    <a class="gh-count" href="#" target="_blank">@</a>
-  </span>
-
 </template>
-
-<script type="text/javascript">
-(function (window, document, undefined) {
-
-  var doc = document._currentScript.ownerDocument;
-  var template = doc.querySelector('template').content;
-
-  xtag.register('github-buttons', {
-    mixins: ['request'],
-    lifecycle: {
-      created: function () {
-        var shadow = this.createShadowRoot();
-        var clone = doc.importNode(template, true);
-        shadow.appendChild(clone);
-
-        var btns = shadow.querySelectorAll('.github-btn');
-        for (var i = 0; i < btns.length; i++) {
-          btns[i].className = btns[i].className += ' github-btn-' + this.size;
-        }
-        var counts = shadow.querySelectorAll('.gh-count');
-        for (var i = 0; i < counts.length; i++) {
-          counts[i].style.display = 'block';
-        }
-
-        shadow.querySelector('.github-watchers .gh-btn').href = 'https://github.com/' + this.user + '/' + this.repo;
-        shadow.querySelector('.github-watchers .gh-count').href = 'https://github.com/' + this.user + '/' + this.repo + '/stargazers';
-        shadow.querySelector('.github-forks .gh-btn').href = 'https://github.com/' + this.user + '/' + this.repo;
-        shadow.querySelector('.github-forks .gh-count').href = 'https://github.com/' + this.user + '/' + this.repo + '/network';
-        shadow.querySelector('.github-me .gh-btn').href = 'https://github.com/' + this.user;
-        shadow.querySelector('.github-me .gh-count').href = 'https://github.com/' + this.user + '/followers';
-
-        var request = new XMLHttpRequest();
-        request.onload = function() {
-          var repo = JSON.parse(this.response);
-          shadow.querySelector('.github-watchers .gh-count').innerHTML = repo.stargazers_count;
-          shadow.querySelector('.github-forks .gh-count').innerHTML = repo.forks_count;
-          shadow.querySelector('.github-me .gh-count').innerHTML = '@' + repo.owner.login;
-        };
-        var url = 'https://api.github.com/repos/' + this.user + '/' + this.repo;
-        request.open('GET', url, true);
-        request.send();
-      }
-    },
-    accessors: {
-      count: {
-        attribute: { boolean: true },
-        get: function () {
-          if (this.getAttribute('count') == 'false') {
-            return false;
-          }
-          return true;
-        }
-      },
-      repo: {
-        attribute: { },
-        get: function () {
-          return this.getAttribute('repo') || 'webcomponents';
-        }
-      },
-      size: {
-        attribute: { },
-        get: function () {
-          if (this.getAttribute('size') == 'large') {
-            return 'large';
-          }
-          return 'small';
-        }
-      },
-      user: {
-        attribute: { },
-        get: function () {
-          return this.getAttribute('user') || 'w3c';
-        }
-      }
-    }
-  });
-})(window, document);
-</script>
