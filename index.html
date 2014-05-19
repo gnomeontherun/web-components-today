@@ -24,22 +24,6 @@
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
-    <style>
-    .reveal { font-size: 40px; }
-    .navigate-up, .navigate-down { display: none; }
-    .reveal h1 { font-size: 2.5em; }
-    .reveal blockquote { font-size: 1.5em; line-height: 1.2em;}
-    .reveal table { width: 100%; }
-    .reveal th { width: 50%; }
-    span.fa { font-family: FontAwesome; }
-    span.fa-check { color: #469808; }
-    span.fa-question { color: #cb9a0b; }
-    span.fa-minus { color: #9d0816; }
-    .reveal ul.list-unstyled { margin-left: 0; }
-    .reveal ul.list-unstyled li { list-style: none; }
-    .reveal pre { font-size: 0.7em; }
-    </style>
-
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
     <script>
       if( window.location.search.match( /print-pdf/gi ) ) {
@@ -67,18 +51,18 @@
       <section>
         <section>
           <h1>Web Components<br />Today</h1>
-          <h3>The Web's Declarative <strike>Future</strike> Present</h3>
+          <br />
           <p>
-            <small>By <a href="http://github.com/gnomeontherun">Jeremy Wilken</a> - Software Engineer, eBay</small>
+            Presentor: <a href="http://github.com/gnomeontherun">Jeremy Wilken</a> - Software Engineer, eBay
           </p>
-          <p>https://github.com/gnomeontherun/<br />web-components-today</p>
+          <p>Slides: <a href="https://github.com/gnomeontherun/web-components-today">https://github.com/gnomeontherun/<br />web-components-today</a></p>
         </section>
       </section>
 
 
       <section>
         <h1>Web Components</h1>
-        <h3>are the <strike>future</strike> present.</h3>
+        <h3 class="fragment">are the <strike>future</strike> present.</h3>
       </section>
 
 
@@ -124,6 +108,20 @@
 
 
       <section>
+        <h1>Recreating Github Buttons as a Web Component</h1>
+        <!-- IMG -->
+      </section>
+
+
+      <section>
+        <h1>Iframe Use</h1>
+        <pre><code><iframe src=""></iframe></code></pre>
+        <h1>Web Component Use</h1>
+        <pre><code><github-buttons user="w3c" repo="webcomponents"></github-buttons></code></pre>
+      </section>
+
+
+      <section>
         <h1>Using an element</h1>
         <pre><code><script src="bower_components/platform/platform.js"></script>
 <link rel="import" href="github-buttons.html">
@@ -136,6 +134,8 @@
       <section>
         <h1>Vanilla Javascript</h1>
         <p>is using just ES5 Javascript to create web components.</p>
+        <br />
+        <p><a href="http://w3c.github.io/webcomponents">http://w3c.github.io/webcomponents</a></p>
       </section>
 
 
@@ -153,16 +153,16 @@
               <ul class="list-unstyled fragment">
                 <li><span class="fa fa-fw fa-check"></span> Just the native APIs</li>
                 <li><span class="fa fa-fw fa-check"></span> Most flexibility</li>
-                <li><span class="fa fa-fw fa-check"></span> Can be very efficient</li>
-                <li><span class="fa fa-fw fa-check"></span> Great for simple components</li>
+                <li><span class="fa fa-fw fa-check"></span> Can be efficient</li>
+                <li><span class="fa fa-fw fa-check"></span> Great for simple</li>
               </ul>
             </td>
             <td>
               <ul class="list-unstyled fragment">
                 <li><span class="fa fa-fw fa-minus"></span> Most work to implement</li>
-                <li><span class="fa fa-fw fa-minus"></span> Most opportunity for bad design</li>
-                <li><span class="fa fa-fw fa-minus"></span> Lacks many supporting tools</li>
-                <li><span class="fa fa-fw fa-minus"></span> Best practices still in progress</li>
+                <li><span class="fa fa-fw fa-minus"></span> Opportunity for bad design</li>
+                <li><span class="fa fa-fw fa-minus"></span> Lacks supporting tools</li>
+                <li><span class="fa fa-fw fa-minus"></span> Best practices unknown</li>
               </ul>
             </td>
           </tr>
@@ -173,6 +173,8 @@
       <section>
         <h1>X-Tag</h1>
         <p>is a custom elements toolkit.</p>
+        <br />
+        <p><a href="http://x-tags.org">http://x-tags.org</a></p>
       </section>
 
 
@@ -190,16 +192,16 @@
               <ul class="list-unstyled fragment">
                 <li><span class="fa fa-fw fa-check"></span> Cleaner API</li>
                 <li><span class="fa fa-fw fa-check"></span> Lifecycle and events</li>
-                <li><span class="fa fa-fw fa-check"></span> Mixins and other utilities</li>
+                <li><span class="fa fa-fw fa-check"></span> Mixins and utilities</li>
                 <li><span class="fa fa-fw fa-check"></span> Provides support for IE9+</li>
               </ul>
             </td>
             <td>
               <ul class="list-unstyled fragment">
-                <li><span class="fa fa-fw fa-minus"></span> Doesn't use Shadow DOM (manual)</li>
-                <li><span class="fa fa-fw fa-minus"></span> Documentation could be better</li>
+                <li><span class="fa fa-fw fa-minus"></span> No Shadow DOM (by default)</li>
+                <li><span class="fa fa-fw fa-minus"></span> Documentation lacking</li>
                 <li><span class="fa fa-fw fa-minus"></span> No two way data binding</li>
-                <li><span class="fa fa-fw fa-minus"></span> Templating not any different</li>
+                <li><span class="fa fa-fw fa-minus"></span> Manual templating</li>
               </ul>
             </td>
           </tr>
@@ -210,6 +212,8 @@
       <section>
         <h1>Polymer</h1>
         <p>is a two part toolkit. It contains a set of polyfills, and a framework to develop custom elements.</p>
+        <br />
+        <p><a href="http://polymer-project.org">http://polymer-project.org</a></p>
       </section>
 
 
@@ -228,14 +232,14 @@
                 <li><span class="fa fa-fw fa-check"></span> Custom elements as APIs</li>
                 <li><span class="fa fa-fw fa-check"></span> Two way data binding</li>
                 <li><span class="fa fa-fw fa-check"></span> Rich framework</li>
-                <li><span class="fa fa-fw fa-check"></span> Supported, docs are improving</li>
+                <li><span class="fa fa-fw fa-check"></span> Docs are growing</li>
               </ul>
             </td>
             <td>
               <ul class="list-unstyled fragment">
-                <li><span class="fa fa-fw fa-minus"></span> Things are still changing</li>
-                <li><span class="fa fa-fw fa-minus"></span> Loads a lot of assets</li>
-                <li><span class="fa fa-fw fa-minus"></span> Alpha, use with caution</li>
+                <li><span class="fa fa-fw fa-minus"></span> Active development</li>
+                <li><span class="fa fa-fw fa-minus"></span> Loads assets</li>
+                <li><span class="fa fa-fw fa-minus"></span> Alpha</li>
                 <li><span class="fa fa-fw fa-minus"></span> IE10+</li>
               </ul>
             </td>
@@ -247,6 +251,8 @@
       <section>
         <h1>AngularJS</h1>
         <p>is a Javascript toolkit for building applications in the browser.</p>
+        <br />
+        <p><a href="http://angularjs.org">http://angularjs.org</a></p>
       </section>
 
 
@@ -263,7 +269,7 @@
             <td>
               <ul class="list-unstyled fragment">
                 <li><span class="fa fa-fw fa-check"></span> Extensive APIs</li>
-                <li><span class="fa fa-fw fa-check"></span> Very declarative markup</li>
+                <li><span class="fa fa-fw fa-check"></span> Declarative markup</li>
                 <li><span class="fa fa-fw fa-check"></span> Lots of flexibility</li>
                 <li><span class="fa fa-fw fa-check"></span> Strong templating</li>
               </ul>
@@ -272,7 +278,7 @@
               <ul class="list-unstyled fragment">
                 <li><span class="fa fa-fw fa-minus"></span> No styling isolation</li>
                 <li><span class="fa fa-fw fa-minus"></span> Difficult to reuse</li>
-                <li><span class="fa fa-fw fa-minus"></span> Requires Angular application</li>
+                <li><span class="fa fa-fw fa-minus"></span> Needs Angular application</li>
                 <li><span class="fa fa-fw fa-minus"></span> Doesn't use native APIs</li>
               </ul>
             </td>
@@ -282,8 +288,7 @@
 
 
       <section>
-        <h1>Problems Web Components do not solve</h1>
-        <h3>So keep these in mind as you build.</h3>
+        <h1>Web Components do not solve</h1>
         <ul>
           <li class="fragment">External dependency management (like jQuery)</li>
           <li class="fragment">Accessibility requirements</li>
@@ -315,7 +320,7 @@
 
       <section>
         <h1>Resources</h1>
-        <ul>
+        <ul class="resources">
           <li><a href="http://www.w3.org/TR/components-intro/">Web Components W3C Spec</a></li>
           <li><a href="http://webcomponents.github.io/">WebComponents.org</a></li>
           <li><a href="http://customelements.io/">CustomElements.io</a></li>
@@ -348,7 +353,7 @@
         history: true,
         center: true,
 
-        theme: 'night', // available themes are in /css/theme
+        theme: 'night-customized', // available themes are in /css/theme
         transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
 
         // Optional libraries used to extend on reveal.js
