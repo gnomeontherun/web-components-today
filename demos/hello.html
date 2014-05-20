@@ -22,7 +22,11 @@
 <script type="text/javascript">
 
   Polymer('x-hello', {
-    name: 'World'
+    name: 'World',
+    changeParentH3: function () {
+      // Change all h3 stylings in the containing page with a random color
+      document.querySelector('h3').style.color = '#'+Math.floor(Math.random()*16777215).toString(16);
+    }
   });
 
 </script>

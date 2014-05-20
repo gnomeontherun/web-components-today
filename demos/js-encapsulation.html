@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <script src="bower_components/platform/platform.js"></script>
+    <link rel="import" href="hello.html">
+
+</head>
+  <body>
+
+    <h1>Javascript Encapsulation</h1>
+
+    <p>In this demo you see how a custom element can have a method, and how that method can access the containing page DOM. This means Javascript inside of a custom element has full access to the parent page, and is not encapsulated or isolated.</p>
+
+    <p><a onclick="document.querySelector('x-hello').changeParentH3();" href="#">Click to change page H3 color</a></p>
+
+    <h3>This H3 element on the page that can be changed by the x-hello tag.</h3>
+
+    <p>Polymer Element</p>
+    <x-hello name="{{name}}"></x-hello>
+
+  </body>
+</html>
