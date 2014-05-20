@@ -1,5 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/polymer-ajax/polymer-ajax.html">
+<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
 
 <polymer-element name="github-buttons" attributes="user repo count size">
 
@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="github-buttons.css" />
 
-  <polymer-ajax url="{{apiUrl}}" auto handleAs="json" response="{{response}}"></polymer-ajax>
+  <core-ajax url="{{apiUrl}}" auto handleAs="json" response="{{response}}"></core-ajax>
   <span class="github-btn github-watchers github-btn-{{size}}">
     <a class="gh-btn" href="https://github.com/{{user}}/{{repo}}/" target="_blank">
       <span class="gh-ico"></span>

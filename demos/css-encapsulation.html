@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <script src="bower_components/platform/platform.js"></script>
+    <link rel="import" href="hello.html">
+
+    <style type="text/css">
+      h3 {
+        font-size: 14px;
+        color: #3c6ba2;
+      }
+    </style>
+
+</head>
+  <body>
+
+    <h1>CSS Encapsulation</h1>
+
+    <p>In this demo you will see how styles are hidden inside of Shadow DOM and do not cross the barrier between the page and the web component. The first H3 below is styled in this page, while the Polymer element has a different design.</p>
+
+    <h3>This H3 element is styled in the page and is blue.</h3>
+
+    <p>Polymer Element</p>
+    <x-hello name="{{name}}"></x-hello>
+
+  </body>
+</html>

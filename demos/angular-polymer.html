@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <script src="bower_components/platform/platform.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <link rel="import" href="hello.html">
+
+</head>
+  <body ng-app ng-init="name='World'">
+
+    <h1>Angular and Polymer Together</h1>
+
+    <p>In this simple demo, you can see how Angular and Polymer can work together. This demonstrates the power of two way-data binding in both projects.</p>
+
+    <p>Name: <input type="text" ng-model="name" placeholder="Who do you want to say hello to?" /> Angular binding: {{name}}</p>
+
+    <p>Polymer Element</p>
+    <x-hello name="{{name}}"></x-hello>
+
+  </body>
+</html>

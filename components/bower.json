@@ -9,8 +9,14 @@
   "private": true,
   "dependencies": {
     "angular": "~1.2.16",
-    "polymer": "~0.2.3",
-    "polymer-ajax": "Polymer/polymer-ajax#~0.2.3",
+    "polymer": "~0.2.4",
+    "core-ajax": "Polymer/core-ajax#~0.2.4",
     "x-tag-core": "~0.9.7"
+  },
+  "resolutions": {
+    "platform": "0.2.4",
+    "core-component-page": "0.2.4",
+    "core-action-icons": "0.2.4",
+    "polymer": "0.2.4"
   }
 }
