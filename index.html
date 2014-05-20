@@ -62,13 +62,13 @@
 
       <section>
         <h1>Web Components</h1>
-        <h3 class="fragment">are the <strike>future</strike> present.</h3>
+        <h3 class="fragment">are the <strike class="bad">future</strike> <span class="good">present</span>.</h3>
       </section>
 
 
       <section>
         <h1>My definition</h1>
-        <blockquote>Web Componets are custom elements that behave like standard HTML elements and are easy to reuse without interfering with other elements.</blockquote>
+        <blockquote>Web Componets are <b>custom elements</b> that behave like <b>standard HTML elements</b> and are <b>easy to reuse</b> and <b>don't interfer</b> with other elements.</blockquote>
       </section>
 
 
@@ -76,11 +76,11 @@
         <h1>Key Goals of Web Components</h1>
         <ul>
           <li class="fragment"><b>Encapsulation</b> - keep component logic isolated</li>
-          <li class="fragment"><b>Isolation</b> - keep component internals hidden from DOM</li>
-          <li class="fragment"><b>Reusability</b> - make features extremely easy to reuse</li>
-          <li class="fragment"><b>Native</b> - function like standard html elements with event APIs</li>
-          <li class="fragment"><b>Customizable</b> - style and extend like standard html elements</li>
-          <li class="fragment"><b>Declarative</b> - favor declaring features first with html</li>
+          <li class="fragment"><b>Isolation</b> - keep component internals hidden</li>
+          <li class="fragment"><b>Reusability</b> - make features easy to reuse</li>
+          <li class="fragment"><b>Native</b> - expose standard event APIs</li>
+          <li class="fragment"><b>Customizable</b> - style and extendable</li>
+          <li class="fragment"><b>Declarative</b> - expressive markup</li>
         </ul>
       </section>
 
@@ -88,9 +88,9 @@
       <section>
         <h1>Web Components are 4 technologies</h1>
         <ul>
-          <li class="fragment"><b>Custom Elements</b> (encapsulation, isolation, native, declarative)</li>
+          <li class="fragment"><b>Custom Elements</b> (encapsulation, declarative)</li>
           <li class="fragment"><b>HTML Imports</b> (reusability)</li>
-          <li class="fragment"><b>Templates</b> (encapsulation)</li>
+          <li class="fragment"><b>Templates</b> (encapsulation, reusability)</li>
           <li class="fragment"><b>Shadow DOM</b> (isolation)</li>
         </ul>
       </section>
@@ -108,23 +108,24 @@
 
 
       <section>
-        <h1>Recreating Github Buttons as a Web Component</h1>
-        <!-- IMG -->
+        <h1>GitHub Buttons</h1>
+        <img src="img/ghbtns.png" />
+        <p><a href="http://ghbtns.com">http://ghbtns.com</a></p>
       </section>
 
 
       <section>
-        <h1>Iframe Use</h1>
-        <pre><code><iframe src=""></iframe></code></pre>
-        <h1>Web Component Use</h1>
-        <pre><code><github-buttons user="w3c" repo="webcomponents"></github-buttons></code></pre>
+        <h1>Iframe</h1>
+        <pre><code><iframe src="http://ghbtns.com/github-btn.html?user=w3c&repo=webcomponents&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe></code></pre>
+        <h1>Web Component</h1>
+        <pre><code><github-buttons user="w3c" repo="webcomponents">
+</github-buttons></code></pre>
       </section>
 
 
       <section>
         <h1>Using an element</h1>
-        <pre><code><script src="bower_components/platform/platform.js"></script>
-<link rel="import" href="github-buttons.html">
+        <pre><code><link rel="import" href="github-buttons.html">
 
 <github-buttons user="w3c" repo="webcomponents" size="large">
 </github-buttons></code></pre>
@@ -135,7 +136,7 @@
         <h1>Vanilla Javascript</h1>
         <p>is using just ES5 Javascript to create web components.</p>
         <br />
-        <p><a href="http://w3c.github.io/webcomponents">http://w3c.github.io/webcomponents</a></p>
+        <p><a href="http://w3c.github.io/webcomponents/explainer/">http://w3c.github.io/webcomponents/explainer/</a></p>
       </section>
 
 

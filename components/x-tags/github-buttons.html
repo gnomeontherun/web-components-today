@@ -1,5 +1,4 @@
 <script src="../bower_components/x-tag-core/src/core.js"></script>
-<script src="../bower_components/x-tag-mixin-request/src/request.js"></script>
 
 <script type="text/javascript">
 (function (window, document) {
@@ -8,7 +7,6 @@
   var template = doc.querySelector('template').content;
 
   xtag.register('github-buttons', {
-    mixins: ['request'],
     lifecycle: {
       created: function () {
         var shadow = this.createShadowRoot();
